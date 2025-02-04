@@ -51,3 +51,5 @@ func die():
 	$CollisionShape3D.disabled = true
 	$Death.play(0.0)
 	$AnimatedSprite3D.play("die")
+	await  $AnimatedSprite3D.animation_finished
+	queue_free()

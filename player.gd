@@ -8,9 +8,9 @@ var rot_x : float
 var rot_y : float
 @export var MOUSE_SENSITIVITY := 0.0125
 
-@onready var ui_script = $ui
+@onready var ui = $ui
+@onready var camera: Camera3D = $Camera3D
 @onready var ray = $Camera3D/RayCast3D
-@onready var camera: Camera3D = $Camera
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_captured: bool = false
@@ -53,12 +53,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_turn_right") and CAMERA_TYPE == CAMERA_CONTROL.KEYBOARD:
 		self.rotate_y(-TURN_SENSITIVITY)
 	if Input.is_action_pressed("shoot"):
-		if ui_script.can_shoot:
+		if ui.can_shoot:
 			shoot()
 
 	move_and_slide()
 
 func shoot():
 	if ray.is_colliding() and ray.get_collider().has_method("die"):
+		ui.hitmarker()
 		ray.get_collider().die()
 		ray.add_exception(ray.get_collider())

@@ -8,6 +8,7 @@ var can_shoot
 func _ready() -> void:
 	$AnimatedSprite2D.animation_finished.connect(_on_AnimatedSprite2D_animation_finished)
 	$AnimatedSprite2D.play(Global.current_weapon + "_i")
+	$Crosshair.play("default")
 	$Music.play(0.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,10 +41,10 @@ func _process(delta: float) -> void:
 		time_since_last_shot = 0.0
 		if Global.current_weapon != "knife":
 			$Gun.play(0.0)
-			$AnimatedSprite2D.play(Global.current_weapon + "_f", fire_rate)
+			$AnimatedSprite2D.play(Global.current_weapon + "_f")
 		else:
 			$Knife.play(0.0)
-			$AnimatedSprite2D.play("knife_f", fire_rate)
+			$AnimatedSprite2D.play("knife_f")
 		
 		if Global.current_weapon != "knife":
 			if Global.ammo > 0:
@@ -56,7 +57,7 @@ func _process(delta: float) -> void:
 		"mgun":
 			fire_rate = 4
 		"bgun":
-			fire_rate = 8
+			fire_rate = 500
 		"knife":
 			fire_rate = 1
 
@@ -69,3 +70,8 @@ func _on_AnimatedSprite2D_animation_finished():
 		$AnimatedSprite2D.play("mgun_i")
 	elif Global.current_weapon == "bgun":
 		$AnimatedSprite2D.play("bgun_i")
+
+func hitmarker():
+	$Crosshair.play("hit")
+	await $Crosshair.animation_finished
+	$Crosshair.play("default")

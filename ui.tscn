@@ -1,11 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://dihrwhvjgg31k"]
+[gd_scene load_steps=32 format=3 uid="uid://dihrwhvjgg31k"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_oyu05"]
 [ext_resource type="FontFile" uid="uid://cxe28qvn4spck" path="res://tex/Not Jam Atomic 20.ttf" id="2_6ae08"]
-[ext_resource type="Texture2D" uid="uid://caasqrtykg5pm" path="res://tex/wolfweapons.png" id="2_k47at"]
+[ext_resource type="Texture2D" uid="uid://caasqrtykg5pm" path="res://tex/png/wolfweapons.png" id="2_k47at"]
 [ext_resource type="Script" path="res://health_count.gd" id="4_1ery8"]
 [ext_resource type="Script" path="res://ammo_count.gd" id="4_5ercu"]
-[ext_resource type="Texture2D" uid="uid://youypunkrhc1" path="res://crosshair/Outline/crosshair038.png" id="6_a2856"]
+[ext_resource type="Texture2D" uid="uid://o4qhxnbxovj8" path="res://crosshair/crosshair006.png" id="6_spmvm"]
+[ext_resource type="Texture2D" uid="uid://5vohepkib3pp" path="res://crosshair/crosshair051.png" id="7_fe10q"]
 [ext_resource type="AudioStream" uid="uid://b3jytnn6ynugs" path="res://sfx/Fight!.wav" id="7_rse7t"]
 [ext_resource type="AudioStream" uid="uid://dhbs6cy5eipkb" path="res://sfx/gun.ogg" id="8_1cw8o"]
 [ext_resource type="AudioStream" uid="uid://2wlmca8frnjv" path="res://sfx/Knife.wav" id="9_ke05t"]
@@ -162,6 +163,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7ynp"]
+atlas = ExtResource("6_spmvm")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecx0b"]
+atlas = ExtResource("7_fe10q")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08p6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7ynp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecx0b")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]
+
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_oyu05")
 
@@ -230,10 +258,11 @@ speed_scale = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Crosshair038" type="Sprite2D" parent="."]
+[node name="Crosshair" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 352)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_a2856")
+sprite_frames = SubResource("SpriteFrames_08p6j")
+animation = &"hit"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_rse7t")

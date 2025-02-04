@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://tmert532es2v"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_cubim"]
-[ext_resource type="Texture2D" uid="uid://62xpev0sesoo" path="res://tex/guard.png" id="1_obq3b"]
-[ext_resource type="AudioStream" uid="uid://26hxx5icfh42" path="res://sfx/14. Death Groan (Male).wav" id="3_fei3f"]
+[ext_resource type="Texture2D" uid="uid://62xpev0sesoo" path="res://tex/png/guard.png" id="1_obq3b"]
+[ext_resource type="AudioStream" uid="uid://be06543auurlq" path="res://sfx/14. Death Groan (Male).wav" id="3_fei3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xc1ty"]
 atlas = ExtResource("1_obq3b")
@@ -80,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xyhor")
 }, {
-"duration": 1.0,
+"duration": 150.0,
 "texture": SubResource("AtlasTexture_dcmcl")
 }],
 "loop": false,
@@ -115,6 +115,7 @@ double_sided = false
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tfhml")
+animation = &"die"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

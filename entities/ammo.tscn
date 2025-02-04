@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c70cf7jhe8to8"]
+
+[ext_resource type="Script" path="res://entities/ammo_pickup.gd" id="1_wkme8"]
+[ext_resource type="ArrayMesh" uid="uid://qkiywgo0jq0l" path="res://3d/bottle.obj" id="3_m282p"]
+[ext_resource type="AudioStream" uid="uid://cc4c6m162ayep" path="res://sfx/Pickup.wav" id="3_mty3f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vexlv"]
+albedo_color = Color(1, 0.309804, 0.105882, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_413iv"]
+
+[node name="pickup" type="Area3D"]
+script = ExtResource("1_wkme8")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.988803, -0.149225, 0, 0.149225, 0.988803, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vexlv")
+mesh = ExtResource("3_m282p")
+
+[node name="light" type="OmniLight3D" parent="mesh"]
+transform = Transform3D(1, 0, 0, 0, -0.149225, 0.988803, 0, -0.988803, -0.149225, 0, 0.403013, -0.0608204)
+light_color = Color(1, 0.129412, 0, 1)
+omni_range = 1.20208
+
+[node name="collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.426536, 0)
+shape = SubResource("SphereShape3D_413iv")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mty3f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
