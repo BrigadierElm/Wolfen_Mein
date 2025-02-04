@@ -1,0 +1,251 @@
+[gd_scene load_steps=28 format=3 uid="uid://dihrwhvjgg31k"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_oyu05"]
+[ext_resource type="FontFile" uid="uid://cxe28qvn4spck" path="res://tex/Not Jam Atomic 20.ttf" id="2_6ae08"]
+[ext_resource type="Texture2D" uid="uid://caasqrtykg5pm" path="res://tex/wolfweapons.png" id="2_k47at"]
+[ext_resource type="Script" path="res://health_count.gd" id="4_1ery8"]
+[ext_resource type="Script" path="res://ammo_count.gd" id="4_5ercu"]
+[ext_resource type="Texture2D" uid="uid://youypunkrhc1" path="res://crosshair/Outline/crosshair038.png" id="6_a2856"]
+[ext_resource type="AudioStream" uid="uid://b3jytnn6ynugs" path="res://sfx/Fight!.wav" id="7_rse7t"]
+[ext_resource type="AudioStream" uid="uid://dhbs6cy5eipkb" path="res://sfx/gun.ogg" id="8_1cw8o"]
+[ext_resource type="AudioStream" uid="uid://2wlmca8frnjv" path="res://sfx/Knife.wav" id="9_ke05t"]
+[ext_resource type="AudioStream" uid="uid://d33p46uqswpiy" path="res://sfx/machine.ogg" id="10_q1qmk"]
+[ext_resource type="AudioStream" uid="uid://b1tr6itqacbrx" path="res://sfx/mini.ogg" id="11_jebk5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bv04d"]
+font = ExtResource("2_6ae08")
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g107v"]
+atlas = ExtResource("2_k47at")
+region = Rect2(128, 96, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1flo"]
+atlas = ExtResource("2_k47at")
+region = Rect2(192, 96, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gkqi"]
+atlas = ExtResource("2_k47at")
+region = Rect2(64, 96, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1chtm"]
+atlas = ExtResource("2_k47at")
+region = Rect2(70, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfxn3"]
+atlas = ExtResource("2_k47at")
+region = Rect2(132, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnoqe"]
+atlas = ExtResource("2_k47at")
+region = Rect2(194, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm5ii"]
+atlas = ExtResource("2_k47at")
+region = Rect2(256, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wrye"]
+atlas = ExtResource("2_k47at")
+region = Rect2(8, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w1kf"]
+atlas = ExtResource("2_k47at")
+region = Rect2(128, 64, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qji0"]
+atlas = ExtResource("2_k47at")
+region = Rect2(192, 64, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lruni"]
+atlas = ExtResource("2_k47at")
+region = Rect2(64, 64, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snxn4"]
+atlas = ExtResource("2_k47at")
+region = Rect2(128, 32, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04jhn"]
+atlas = ExtResource("2_k47at")
+region = Rect2(192, 32, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy3qe"]
+atlas = ExtResource("2_k47at")
+region = Rect2(64, 32, 63, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8x80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g107v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1flo")
+}],
+"loop": false,
+"name": &"bgun_f",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gkqi")
+}],
+"loop": true,
+"name": &"bgun_i",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1chtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfxn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnoqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm5ii")
+}],
+"loop": false,
+"name": &"knife_f",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wrye")
+}],
+"loop": true,
+"name": &"knife_i",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w1kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qji0")
+}],
+"loop": false,
+"name": &"mgun_f",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lruni")
+}],
+"loop": true,
+"name": &"mgun_i",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snxn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04jhn")
+}],
+"loop": false,
+"name": &"pistol_f",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy3qe")
+}],
+"loop": true,
+"name": &"pistol_i",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"player_death",
+"speed": 5.0
+}]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_oyu05")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -242.0
+offset_top = -40.0
+offset_right = 243.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.184314, 0.14902, 1, 1)
+
+[node name="Health" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+offset_left = 10.0
+offset_right = 168.0
+offset_bottom = 32.0
+text = "Health:"
+label_settings = SubResource("LabelSettings_bv04d")
+uppercase = true
+
+[node name="Health_Count" type="Label" parent="Health"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = 142.0
+offset_right = 242.0
+offset_bottom = 33.0
+text = "100"
+label_settings = SubResource("LabelSettings_bv04d")
+uppercase = true
+script = ExtResource("4_1ery8")
+
+[node name="Ammo" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 128.0
+offset_bottom = 62.0
+text = "Ammo:"
+label_settings = SubResource("LabelSettings_bv04d")
+uppercase = true
+
+[node name="Ammo_Count" type="Label" parent="Ammo"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = 120.0
+offset_right = 220.0
+offset_bottom = 32.0
+text = "0"
+label_settings = SubResource("LabelSettings_bv04d")
+uppercase = true
+script = ExtResource("4_5ercu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(544, 528)
+scale = Vector2(4.67188, 5.15625)
+sprite_frames = SubResource("SpriteFrames_r8x80")
+animation = &"bgun_f"
+speed_scale = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Crosshair038" type="Sprite2D" parent="."]
+position = Vector2(576, 352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_a2856")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rse7t")
+
+[node name="Gun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1cw8o")
+
+[node name="Knife" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ke05t")
+
+[node name="Mgun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_q1qmk")
+
+[node name="Bgun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_jebk5")

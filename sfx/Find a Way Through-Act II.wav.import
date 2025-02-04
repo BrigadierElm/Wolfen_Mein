@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3ggs2pwbxgla"
+path="res://.godot/imported/Find a Way Through-Act II.wav-7c73a8de18fea54dca9d025453daa5f8.sample"
+
+[deps]
+
+source_file="res://sfx/Find a Way Through-Act II.wav"
+dest_files=["res://.godot/imported/Find a Way Through-Act II.wav-7c73a8de18fea54dca9d025453daa5f8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
